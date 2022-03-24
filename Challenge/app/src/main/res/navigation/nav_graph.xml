@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="id.anantyan.challengechapter3.ui.FirstFragment"
+        android:label="Screen 1"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/second_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/second_fragment"
+        android:name="id.anantyan.challengechapter3.ui.SecondFragment"
+        android:label="Screen 2"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/third_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/third_fragment"
+        android:name="id.anantyan.challengechapter3.ui.ThirdFragment"
+        android:label="Screen 3"
+        tools:layout="@layout/fragment_third">
+        <argument
+            android:name="users"
+            app:argType="id.anantyan.challengechapter3.model.Users"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_thirdFragment_to_fourthFragment"
+            app:destination="@id/fourth_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourth_fragment"
+        android:name="id.anantyan.challengechapter3.ui.FourthFragment"
+        android:label="Screen 4"
+        tools:layout="@layout/fragment_fourth" >
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_fourth_fragment_to_third_fragment"
+            app:destination="@id/third_fragment"
+            app:popUpTo="@id/second_fragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+</navigation>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Challenge Chapter 3</string>
+    <string name="txt_hello">Hello</string>
+    <string name="txt_next">Next</string>
+    <string name="txt_name">Name</string>
+    <string name="txt_age">Age</string>
+    <string name="txt_address">Address</string>
+    <string name="txt_profession">Profession</string>
+</resources>
