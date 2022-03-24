@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Exercise Project"
 include ':app'
+include ':utils'
+include ':jetpack'
