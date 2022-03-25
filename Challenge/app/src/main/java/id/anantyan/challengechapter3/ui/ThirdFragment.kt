@@ -9,13 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import id.anantyan.challengechapter3.R
 import id.anantyan.challengechapter3.databinding.FragmentThirdBinding
-import id.anantyan.utils.viewbinding.viewBinding
 
 class ThirdFragment : Fragment() {
 
-    private val binding: FragmentThirdBinding by viewBinding()
+    private var _binding: FragmentThirdBinding? = null
+    private val binding get() = _binding!!
     private val args: ThirdFragmentArgs by navArgs()
     private val viewModel: ThirdViewModel by viewModels()
 
@@ -24,7 +23,8 @@ class ThirdFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false)
+        _binding = FragmentThirdBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,6 +36,11 @@ class ThirdFragment : Fragment() {
         }
         onSaveState()
         onRestoreState()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     @SuppressLint("SetTextI18n")

@@ -2,29 +2,24 @@ package id.anantyan.challengechapter3.ui
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.navigation.ui.navigateUp
 import id.anantyan.challengechapter3.MainActivity
-import id.anantyan.challengechapter3.R
 import id.anantyan.challengechapter3.databinding.FragmentFourthBinding
-import id.anantyan.challengechapter3.databinding.FragmentSecondBinding
 import id.anantyan.challengechapter3.model.Users
-import id.anantyan.utils.Validation
 import id.anantyan.utils.Validation.formValid
 import id.anantyan.utils.validator.Validator
 import id.anantyan.utils.validator.constant.Mode
 import id.anantyan.utils.validator.validator
-import id.anantyan.utils.viewbinding.viewBinding
 
 class FourthFragment : Fragment() {
 
-    private val binding: FragmentFourthBinding by viewBinding()
+    private var _binding: FragmentFourthBinding? = null
+    private val binding get() = _binding!!
     private val args: FourthFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -32,7 +27,8 @@ class FourthFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fourth, container, false)
+        _binding = FragmentFourthBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,6 +36,11 @@ class FourthFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             onValidation((activity as MainActivity), Validation(it))
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun onValidation(

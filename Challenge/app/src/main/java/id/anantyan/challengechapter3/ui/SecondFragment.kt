@@ -2,31 +2,31 @@ package id.anantyan.challengechapter3.ui
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import id.anantyan.challengechapter3.MainActivity
-import id.anantyan.challengechapter3.R
 import id.anantyan.challengechapter3.databinding.FragmentSecondBinding
 import id.anantyan.challengechapter3.model.Users
 import id.anantyan.utils.Validation.formValid
 import id.anantyan.utils.validator.Validator
 import id.anantyan.utils.validator.constant.Mode
 import id.anantyan.utils.validator.validator
-import id.anantyan.utils.viewbinding.viewBinding
 
 class SecondFragment : Fragment() {
 
-    private val binding: FragmentSecondBinding by viewBinding()
+    private var _binding: FragmentSecondBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,6 +34,11 @@ class SecondFragment : Fragment() {
         binding.btnNext.setOnClickListener {
             onValidation((activity as MainActivity), Validation(it))
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun onValidation(
