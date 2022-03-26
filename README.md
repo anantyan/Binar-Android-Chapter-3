@@ -1,6 +1,6 @@
 # Binar Exercise Project Chapter 3
 Keep Calm 👌 If you want to download this file or copy the repository into a local PC is only size - <b>415 KB</b>
-### Tambahan racikan
+### Racikan tambahan
  - View Model
  - View Pager 2
  - Parcelable
