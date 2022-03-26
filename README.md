@@ -5,6 +5,7 @@ Keep Calm 👌 If you want to download this file or copy the repository into a l
  - View Pager 2
  - Parcelable
  - Material Design Based
+ - Diffutils for Recycler View
 ### Screenshoot aplikasi
 ![enter image description here](https://raw.githubusercontent.com/anantyan/Binar-Android-Chapter-3/ExerciseProject/Screenshoot/pages.png)
 ![enter image description here](https://raw.githubusercontent.com/anantyan/Binar-Android-Chapter-3/ExerciseProject/Screenshoot/pages___1.png)
